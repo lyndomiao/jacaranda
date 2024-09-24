@@ -4,25 +4,50 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Chen, Oslo</title>
+	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-        body, html {
+         body {
             margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #000; 
+            background-color: #f0f0f0;
         }
-        img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover; 
+        .image-container {
+            position: absolute;
+        }
+        .fading-image {
+            width: 3%;
+            opacity: 1;
+            transition: opacity 1.6s ease-out;
         }
     </style>
 </head>
 <body>
     <img src="house.jpg">
+	<script>
+        $(document).ready(function() {
+            $(document).click(function(event) {
+                // 创建图片元素
+                const $img = $('<img class="fading-image" src="doraemon.png" alt="Placeholder Image">');
+                
+                // 设置图片位置为点击的位置
+                $img.css({
+                    top: event.clientY - 75 + 'px',
+                    left: event.clientX - 75 + 'px',
+                    position: 'absolute'
+                });
+
+                // 将图片添加到body
+                $('body').append($img);
+
+                // 图片在2秒后淡出，然后从DOM中删除
+                $img.fadeOut(1600, function() {
+                    $(this).remove();
+                });
+            });
+        });
+    </script>
 </body>
 </html>
