@@ -6,13 +6,17 @@
     <title>Chen, Oslo</title>
 	 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <style>
-         body {
+         body, html {
             margin: 0;
-            height: 100vh;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
             display: flex;
             justify-content: center;
             align-items: center;
-            background-color: #f0f0f0;
+            background-color: #000; 
+			background-image: url('house.jpg');
+            background-size: cover; /* 背景图片将会覆盖整个页面 */
         }
         .image-container {
             position: absolute;
@@ -25,7 +29,6 @@
     </style>
 </head>
 <body>
-    <img src="house.jpg">
 	<script>
         $(document).ready(function() {
             $(document).click(function(event) {
