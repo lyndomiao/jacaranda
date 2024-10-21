@@ -25,7 +25,9 @@
             align-items: center;
             background-color: #000; 
 			background-image: url('house.jpg');
-            background-size: cover; /* 背景图片将会覆盖整个页面 */
+            background-size: cover; /* 图片覆盖整个容器 */
+            background-position: center center; /* 图片居中显示 */
+            background-repeat: no-repeat; /* 防止图片重复 */
         }
         .image-container {
             position: absolute;
@@ -36,10 +38,15 @@
             transition: opacity 1.6s ease-out;
         }
 		.text-overlay {
+			max-width: 100%; /* 设置最大宽度为页面宽度 */
+            max-height: 100vh; /* 设置最大高度为视口高度（100%可视区域高度） */
+			text-align: right; 
+			line-height: 2;
 			white-space: nowrap; 
             position: absolute;
             top: 15%;
             left: 50%;
+			overflow: auto; /* 如果内容过长，添加滚动条，而不是溢出 */
             transform: translate(-50%, -50%);
             color: white;
             font-size: 24px;
@@ -49,8 +56,13 @@
     </style>
 </head>
 <body>
-	<div class="text-overlay">当有一天我忘记自己曾经是或想成为什么样的人时，希望还能从你那里找到答案。</div>
-	<div class="text-overlay" style="top: 20%; left: 70%;">2024.09.25, Casablanca</div>
+	<div class="text-overlay">
+	当有一天我忘记自己曾经是或想成为什么样的人时，希望还能从你那里找到答案。<br>
+	2024.09.25, Casablanca</br>
+	</div>
+	<div class="text-overlay" style="top:30%">
+	一个清晨，大雾散尽，不止大雾，不止清晨。
+	</div>
 	<script>
         $(document).ready(function() {
             $(document).click(function(event) {
